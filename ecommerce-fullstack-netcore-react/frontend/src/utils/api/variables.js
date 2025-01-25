@@ -1,8 +1,8 @@
 export const variables = {
-    BASE_URL: "http://192.168.213.102:5214/api/",
-    USER_API: "http://192.168.213.102:5214/api/user",
-    PRODUCT_API: "http://192.168.213.102:5214/api/product",
-    ORDER_API: "http://192.168.213.102:5214/api/order",
-    PRODUCTSIZE_API: "http://192.168.213.102:5214/api/productsize",
-    ORDERITEM_API: "http://192.168.213.102:5214/api/orderitem",
+    BASE_URL: "http://demokhoaanh-001-site1.qtempurl.com/api/",
+    USER_API: "http://demokhoaanh-001-site1.qtempurl.com/api/user",
+    PRODUCT_API: "http://demokhoaanh-001-site1.qtempurl.com/api/product",
+    ORDER_API: "http://demokhoaanh-001-site1.qtempurl.com/api/order",
+    PRODUCTSIZE_API: "http://demokhoaanh-001-site1.qtempurl.com/api/productsize",
+    ORDERITEM_API: "http://demokhoaanh-001-site1.qtempurl.com/api/orderitem",
 }
