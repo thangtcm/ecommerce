@@ -1,21 +1,21 @@
-import apiClient from './apiClient';
+import axios from './axios';
 import jwtDecode from 'jwt-decode';
 import { variables } from './variables.js';
 import axios from 'axios';
 
 const API_URL = variables.USER_API
 const getUsers = async () => {
-  const response = await apiClient.get(API_URL);
+  const response = await axios.get(API_URL);
   return response.data;
 }
 
 const getUser = async (userId) => {
-  const response = await apiClient.get(`${API_URL}/${userId}`);
+  const response = await axios.get(`${API_URL}/${userId}`);
   return response.data;
 }
 
 const createUser = async (user) => {
-  const response = await apiClient.post(API_URL, user, {
+  const response = await axios.post(API_URL, user, {
     headers: {
       'Content-Type': 'application/json'  // Thêm Content-Type
     }
@@ -24,7 +24,7 @@ const createUser = async (user) => {
 }
 
 const updateUser = async (userId, user) => {
-  const response = await apiClient.put(`${API_URL}/${userId}`, user, {
+  const response = await axios.put(`${API_URL}/${userId}`, user, {
     headers: {
       'Content-Type': 'application/json'  // Thêm Content-Type
     }
@@ -33,13 +33,13 @@ const updateUser = async (userId, user) => {
 }
 
 const deleteUser = async (userId) => {
-  const response = await apiClient.delete(`${API_URL}/${userId}`);
+  const response = await axios.delete(`${API_URL}/${userId}`);
   return response.data;
 }
 
 const login = async (loginData) => {
   try {
-    const response = await apiClient.post(
+    const response = await axios.post(
       `${API_URL}/login`, 
       loginData, {
         headers: {

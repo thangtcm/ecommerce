@@ -1,25 +1,24 @@
-import apiClient from './apiClient';
 import { variables } from './variables.js';
 import axios from 'axios';
 
 const API_URL = variables.PRODUCTSIZE_API
 const getProductSizes = async () => {
-  const response = await apiClient.get(`${API_URL}`);
+  const response = await axios.get(`${API_URL}`);
   return response.data;
 };
 
 const getProductSizesByProductId = async (productId) => {
-  const response = await apiClient.get(`${API_URL}/${productId}`);
+  const response = await axios.get(`${API_URL}/${productId}`);
   return response.data;
 };
 
 const getProductSize = async (productSizeId) => {
-  const response = await apiClient.get(`${API_URL}/${productSizeId}/size`);
+  const response = await axios.get(`${API_URL}/${productSizeId}/size`);
   return response.data;
 };
 
 const addProductSize = async (productSizeData) => {
-  const response = await apiClient.post(`${API_URL}`, productSizeData, {
+  const response = await axios.post(`${API_URL}`, productSizeData, {
     headers: {
       'Content-Type': 'application/json'  // Thêm Content-Type
     }
@@ -28,7 +27,7 @@ const addProductSize = async (productSizeData) => {
 };
 
 const updateProductSize = async (productSizeId, productSizeData) => {
-  const response = await apiClient.put(`${API_URL}/${productSizeId}`, productSizeData, {
+  const response = await axios.put(`${API_URL}/${productSizeId}`, productSizeData, {
     headers: {
       'Content-Type': 'application/json'  // Thêm Content-Type
     }
@@ -38,7 +37,7 @@ const updateProductSize = async (productSizeId, productSizeData) => {
 };
 
 const deleteProductSize = async (productSizeId) => {
-  const response = await apiClient.delete(`${API_URL}/${productSizeId}`);
+  const response = await axios.delete(`${API_URL}/${productSizeId}`);
   return response.data;
 };
 
