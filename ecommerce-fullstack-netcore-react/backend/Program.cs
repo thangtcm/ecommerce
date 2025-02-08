@@ -19,13 +19,12 @@ namespace backend
             // Add services to the container.
             builder.Services.AddCors(options =>
             {
-                options.AddPolicy(name: MyAllowSpecificOrigins,
-                                  policy =>
-                                  {
-                                      policy.AllowAnyOrigin()
-                                            .AllowAnyHeader()
-                                            .AllowAnyMethod();
-                                  });
+                options.AddPolicy(MyAllowSpecificOrigins, builder =>
+                {
+                    builder.AllowAnyOrigin()
+                           .AllowAnyMethod()
+                           .AllowAnyHeader();
+                });
             });
 
             builder.Services.AddScoped<IRepository<User>, UserRepository>();
