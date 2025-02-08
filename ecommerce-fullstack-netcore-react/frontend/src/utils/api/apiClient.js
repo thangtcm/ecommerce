@@ -2,7 +2,7 @@ import axios from 'axios';
 import { variables } from './variables.js';
 
 const apiClient = axios.create({
-  baseURL: variables.ORDER_API,  
+  baseURL: variables.BASE_URL,  
   headers: {
     'Content-Type': 'application/json',  
   }
