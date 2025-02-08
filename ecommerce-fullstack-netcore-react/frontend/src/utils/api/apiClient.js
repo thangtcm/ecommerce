@@ -4,7 +4,8 @@ import { variables } from './variables.js';
 const apiClient = axios.create({
   baseURL: variables.BASE_URL,  
   headers: {
-    'Content-Type': 'application/json',  
+    'Content-Type': 'application/json',
+    'Accept': '*/*' 
   }
 });
 
