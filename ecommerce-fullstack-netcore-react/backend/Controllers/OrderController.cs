@@ -7,7 +7,6 @@ namespace backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [EnableCors("_myAllowSpecificOrigins")]
     public class OrderController : ControllerBase
     {
         private readonly IListRepository<Order> _orderRepository;

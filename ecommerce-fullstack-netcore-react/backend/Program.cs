@@ -49,7 +49,7 @@ namespace backend
             }
             app.UseHttpsRedirection();
             app.UseCors(MyAllowSpecificOrigins);
-
+            app.UseRouting();
             app.UseAuthorization();
 
 

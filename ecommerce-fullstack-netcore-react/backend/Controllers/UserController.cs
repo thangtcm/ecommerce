@@ -13,7 +13,6 @@ namespace backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [EnableCors("_myAllowSpecificOrigins")]
 
     public class UserController : ControllerBase
     {
