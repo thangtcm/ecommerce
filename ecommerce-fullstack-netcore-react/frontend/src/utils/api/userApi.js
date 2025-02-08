@@ -1,4 +1,3 @@
-import axios from './axios';
 import jwtDecode from 'jwt-decode';
 import { variables } from './variables.js';
 import axios from 'axios';
