@@ -1,5 +1,6 @@
 import apiClient from './apiClient';
 import { variables } from './variables.js';
+import axios from 'axios';
 
 const API_URL = variables.PRODUCTSIZE_API
 const getProductSizes = async () => {
@@ -18,12 +19,20 @@ const getProductSize = async (productSizeId) => {
 };
 
 const addProductSize = async (productSizeData) => {
-  const response = await apiClient.post(`${API_URL}`, productSizeData);
+  const response = await apiClient.post(`${API_URL}`, productSizeData, {
+    headers: {
+      'Content-Type': 'application/json'  // Thêm Content-Type
+    }
+  });
   return response.data;
 };
 
 const updateProductSize = async (productSizeId, productSizeData) => {
-  const response = await apiClient.put(`${API_URL}/${productSizeId}`, productSizeData);
+  const response = await apiClient.put(`${API_URL}/${productSizeId}`, productSizeData, {
+    headers: {
+      'Content-Type': 'application/json'  // Thêm Content-Type
+    }
+  });
   console.log("in api", response)
   return response.data;
 };

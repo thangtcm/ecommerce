@@ -1,6 +1,7 @@
 import apiClient from './apiClient';
 import jwtDecode from 'jwt-decode';
 import { variables } from './variables.js';
+import axios from 'axios';
 
 const API_URL = variables.USER_API
 const getUsers = async () => {
@@ -14,12 +15,20 @@ const getUser = async (userId) => {
 }
 
 const createUser = async (user) => {
-  const response = await apiClient.post(API_URL, user);
+  const response = await apiClient.post(API_URL, user, {
+    headers: {
+      'Content-Type': 'application/json'  // Thêm Content-Type
+    }
+  });
   return response.data;
 }
 
 const updateUser = async (userId, user) => {
-  const response = await apiClient.put(`${API_URL}/${userId}`, user);
+  const response = await apiClient.put(`${API_URL}/${userId}`, user, {
+    headers: {
+      'Content-Type': 'application/json'  // Thêm Content-Type
+    }
+  });
   return response.data;
 }
 
@@ -32,7 +41,11 @@ const login = async (loginData) => {
   try {
     const response = await apiClient.post(
       `${API_URL}/login`, 
-      loginData
+      loginData, {
+        headers: {
+          'Content-Type': 'application/json'  // Thêm Content-Type
+        }
+      }
     );
 
     if (response.data.token) {
