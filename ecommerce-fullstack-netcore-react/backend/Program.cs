@@ -1,4 +1,4 @@
-using backend.Models;
+﻿using backend.Models;
 using backend.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -47,8 +47,8 @@ namespace backend
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-            app.UseHttpsRedirection();
             app.UseCors(MyAllowSpecificOrigins);
+            app.UseHttpsRedirection();
 
             app.UseAuthorization();
 

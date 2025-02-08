@@ -1,49 +1,37 @@
-import axios from 'axios';
+import apiClient from './apiClient.js';
 import { variables } from './variables.js';
 
-const API_URL = variables.ORDER_API
+const API_URL = variables.ORDER_API;
 
 const getOrders = async () => {
-  const response = await axios.get(API_URL);
+  const response = await apiClient.get(API_URL);
   return response.data;
 }
 
 const getOrdersByUserId = async (userId) => {
-  const response = await axios.get(`${API_URL}/${userId}`);
+  const response = await apiClient.get(`${API_URL}/${userId}`);
   return response.data;
 }
 
 const createOrder = async (order) => {
-  const response = await axios.post(API_URL, order, {
-    headers: {
-      'Content-Type': 'application/json'  // Thêm Content-Type
-    }
-  });
+  const response = await apiClient.post('${API_URL}', order);
   return response.data;
 }
 
 const updateOrder = async (orderId, order) => {
-  const response = await axios.put(`${API_URL}/${orderId}`, order, {
-    headers: {
-      'Content-Type': 'application/json'  // Thêm Content-Type
-    }
-  });
+  const response = await apiClient.put(`${API_URL}/${orderId}`, order);
   return response.data;
 }
 
 const deleteOrder = async (orderId) => {
-  const response = await axios.delete(`${API_URL}/${orderId}`, {
-    headers: {
-      'Content-Type': 'application/json'  // Thêm Content-Type
-    }
-  });
+  const response = await apiClient.delete(`${API_URL}/${orderId}`);
   return response.data;
 }
 
 export default {
-    getOrders,
-    getOrdersByUserId,
-    createOrder,
-    updateOrder,
-    deleteOrder
+  getOrders,
+  getOrdersByUserId,
+  createOrder,
+  updateOrder,
+  deleteOrder
 };
