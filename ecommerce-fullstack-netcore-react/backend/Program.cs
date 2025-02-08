@@ -13,7 +13,7 @@ namespace backend
 
             var builder = WebApplication.CreateBuilder(args);
 
-            var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+            var MyAllowSpecificOrigins = "AllowOrigin";
 
 
             // Add services to the container.
@@ -48,10 +48,8 @@ namespace backend
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-
-            app.UseCors("_myAllowSpecificOrig   ins");
-
             app.UseHttpsRedirection();
+            app.UseCors(MyAllowSpecificOrigins);
 
             app.UseAuthorization();
 

@@ -1,30 +1,27 @@
-import axios from 'axios';
-import { variables } from './variables.js';
-
-const API_URL = variables.PRODUCT_API
+import apiClient from './apiClient';
 
 const getProducts = async () => {
-  const response = await axios.get(API_URL);
+  const response = await apiClient.get(API_URL);
   return response.data;
 }
 
 const getProduct = async (productId) => {
-  const response = await axios.get(`${API_URL}/${productId}`);
+  const response = await apiClient.get(`${API_URL}/${productId}`);
   return response.data;
 }
 
 const addProduct = async (product) => {
-  const response = await axios.post(API_URL, product);
+  const response = await apiClient.post(API_URL, product);
   return response.data;
 }
 
 const updateProduct = async (productId, product) => {
-  const response = await axios.put(`${API_URL}/${productId}`, product);
+  const response = await apiClient.put(`${API_URL}/${productId}`, product);
   return response.data;
 }
 
 const deleteProduct = async (productId) => {
-  const response = await axios.delete(`${API_URL}/${productId}`);
+  const response = await apiClient.delete(`${API_URL}/${productId}`);
   return response.data;
 }
 
