@@ -110,9 +110,9 @@ public class Startup
         }
 
         app.UseHttpsRedirection();
+        app.UseCors("AllowOrigin");
 
         app.UseRouting();
-        app.UseCors("AllowOrigin");
 
         app.UseAuthentication();
 
