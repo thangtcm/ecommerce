@@ -15,5 +15,5 @@ apiClient.interceptors.request.use((config) => {
   }
   return config;
 }, (error) => Promise.reject(error));
-
+apiClient.defaults.withCredentials = true;
 export default apiClient;
