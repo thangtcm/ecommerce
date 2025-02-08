@@ -1,5 +1,7 @@
 import apiClient from './apiClient';
+import { variables } from './variables.js';
 
+const API_URL = variables.PRODUCT_API
 const getProducts = async () => {
   const response = await apiClient.get(API_URL);
   return response.data;

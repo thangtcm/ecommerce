@@ -1,6 +1,8 @@
 import apiClient from './apiClient';
 import jwtDecode from 'jwt-decode';
+import { variables } from './variables.js';
 
+const API_URL = variables.USER_API
 const getUsers = async () => {
   const response = await apiClient.get(API_URL);
   return response.data;
