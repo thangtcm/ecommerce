@@ -14,7 +14,7 @@ const getOrdersByUserId = async (userId) => {
 }
 
 const createOrder = async (order) => {
-  const response = await apiClient.post('${API_URL}', order);
+  const response = await apiClient.post(`${API_URL}`, order);
   return response.data;
 }
 

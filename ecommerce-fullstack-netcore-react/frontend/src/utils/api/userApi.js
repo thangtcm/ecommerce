@@ -5,33 +5,33 @@ import apiClient from './apiClient.js';
 const API_URL = variables.USER_API;
 
 const getUsers = async () => {
-  const response = await apiClient.get('/users');
+  const response = await apiClient.get(`${API_URL}`);
   return response.data;
 }
 
 const getUser = async (userId) => {
-  const response = await apiClient.get(`/users/${userId}`);
+  const response = await apiClient.get(`${API_URL}/${userId}`);
   return response.data;
 }
 
 const createUser = async (user) => {
-  const response = await apiClient.post('/users', user);
+  const response = await apiClient.post(`${API_URL}`, user);
   return response.data;
 }
 
 const updateUser = async (userId, user) => {
-  const response = await apiClient.put(`/users/${userId}`, user);
+  const response = await apiClient.put(`${API_URL}/${userId}`, user);
   return response.data;
 }
 
 const deleteUser = async (userId) => {
-  const response = await apiClient.delete(`/users/${userId}`);
+  const response = await apiClient.delete(`${API_URL}/${userId}`);
   return response.data;
 }
 
 const login = async (loginData) => {
   try {
-    const response = await apiClient.post('/users/login', loginData);
+    const response = await apiClient.post(`${API_URL}/login`, loginData);
 
     if (response.data.token) {
       localStorage.setItem('user', JSON.stringify(response.data));
